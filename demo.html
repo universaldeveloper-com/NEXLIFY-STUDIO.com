@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Showcase - Universal Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">UD</span>Universal Developer
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="demo.html" class="active">Demo Showcase</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="demo.html" class="btn btn-primary nav-cta">View Our Work</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Capabilities Showcase</h1>
+                <p>Explore various components, animations, and effects we can implement. This page itself is a demo!</p>
+            </div>
+        </section>
+
+        <!-- Demo Section 1: Animated Buttons & Hover Effects -->
+        <section class="demo-section">
+            <div class="container">
+                <h2>Interactive Buttons & Hover States</h2>
+                <div class="component-grid">
+                    <button class="btn demo-btn-1">Pulse Glow</button>
+                    <button class="btn demo-btn-2">Slide Effect</button>
+                    <button class="btn demo-btn-3">Border Magic</button>
+                    <a href="#" class="btn demo-btn-4">Icon Link <span class="icon">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section 2: Cards with Effects -->
+        <section class="demo-section alt-bg">
+            <div class="container">
+                <h2>Dynamic Content Cards</h2>
+                <div class="card-grid">
+                    <div class="demo-card">
+                        <img src="https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Feature+One" alt="Feature One">
+                        <h3>Card Title 1</h3>
+                        <p>Subtle lift and shadow on hover. Perfect for showcasing features or products.</p>
+                        <a href="#" class="btn btn-small">Learn More</a>
+                    </div>
+                    <div class="demo-card glass-card">
+                         <img src="https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=Feature+Two" alt="Feature Two">
+                        <h3>Glassmorphism Card</h3>
+                        <p>Modern frosted glass effect. Requires a background image on the section.</p>
+                        <a href="#" class="btn btn-small btn-light">Explore</a>
+                    </div>
+                    <div class="demo-card flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="https://via.placeholder.com/300x200/45B7D1/FFFFFF?text=Hover+Me" alt="Flip Card">
+                                <h3>Interactive Flip</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>More Details!</h4>
+                                <p>Reveals content on the other side. Great for Q&A or concise info.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section 3: Text Animations & Counters -->
+        <section class="demo-section">
+            <div class="container">
+                <h2>Engaging Text & Counters</h2>
+                <div class="component-grid">
+                    <h3 class="animated-text-reveal"><span>Revealing Text Animation</span></h3>
+                    <div class="counter-container">
+                        <div class="counter" data-target="150">0</div>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="counter-container">
+                        <div class="counter" data-target="98">0</div>
+                        <p>% Client Satisfaction</p>
+                    </div>
+                     <p class="gradient-text">This is a Gradient Text Effect!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section 4: Accordion / FAQ -->
+        <section class="demo-section alt-bg">
+            <div class="container">
+                <h2>Accordion / FAQ Component</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            What technologies do you use?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>We primarily use HTML, CSS, JavaScript, and can work with various frameworks like React, Vue, or backend technologies like Node.js, Python, or PHP depending on project needs.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            How long does a project take?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Project timelines vary based on complexity, features, and client responsiveness. A simple landing page might take 1-2 weeks, while a more complex site could take 4-8 weeks or longer.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Do you offer ongoing maintenance?
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Yes, we offer various maintenance packages to ensure your website remains up-to-date, secure, and performs optimally post-launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section 5: Modal / Popup -->
+         <section class="demo-section">
+            <div class="container">
+                <h2>Modal / Popup Window</h2>
+                <button class="btn" id="openModalBtn">Open Modal</button>
+
+                <div id="demoModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal-btn">×</span>
+                        <h3>Sample Modal Title</h3>
+                        <p>This is a simple modal window. It can be used for login forms, important announcements, image galleries, or video embeds.</p>
+                        <img src="https://via.placeholder.com/400x200/77DD77/FFFFFF?text=Modal+Content" alt="Modal image" style="max-width:100%; border-radius: 8px; margin-top:15px;">
+                        <button class="btn btn-primary" style="margin-top:20px;" id="closeModalInsideBtn">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Universal Developer. All Rights Reserved.</p>
+            <p><a href="about.html#privacy">Privacy Policy</a> | <a href="about.html#terms">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
