@@ -3,165 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Showcase - Universal Developer</title>
+    <title>Showcase - NEXLIFY STUDIO - Advanced CSS & Animations</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicons -->
 </head>
-<body>
-    <header>
-        <div class="container">
+<body class="dark-mode">
+
+    <header class="site-header">
+        <!-- ... (Same header as index.html) ... -->
+         <div class="container header-container">
             <a href="index.html" class="logo">
-                <span class="logo-icon">UD</span>Universal Developer
+                <span class="logo-icon-initials">NS</span>NEXLIFY STUDIO
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="demo.html" class="active">Demo Showcase</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="demo.html" class="btn btn-primary nav-cta">View Our Work</a>
+            <div class="header-right">
+                <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.591-1.591a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.833 17.833a.75.75 0 01-1.06 0l-1.591-1.591a.75.75 0 111.06-1.06l1.591 1.591a.75.75 0 010 1.06zM12 18.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM5.106 17.833a.75.75 0 010-1.06l1.591-1.591a.75.75 0 011.06 1.06l-1.591 1.591a.75.75 0 01-1.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.167 6.167a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06L6.167 7.227a.75.75 0 010-1.06z"/></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.638 4.383-8.532a.75.75 0 01.818.162z" clip-rule="evenodd" /></svg>
+                </button>
+                <button id="menuToggleBtn" class="menu-toggle-btn" aria-label="Open menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
+    <nav id="mobileMenu" class="mobile-menu-overlay">
+         <!-- ... (Same menu as index.html) ... -->
+        <div class="menu-content">
+            <a href="index.html" class="menu-logo">NEXLIFY STUDIO</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="demo.html">Showcase</a></li>
+                <li><a href="premium.html">Premium Services</a></li>
+                <li><a href="index.html#contact" class="contact-link-menu">Contact</a></li>
+            </ul>
+            <div class="menu-footer">
+                <p>Developed by Universal Developer Team</p>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Our Capabilities Showcase</h1>
-                <p>Explore various components, animations, and effects we can implement. This page itself is a demo!</p>
+    <main class="site-main">
+        <section class="page-title-section section-padding">
+            <div class="container text-center">
+                <h1 class="page-main-title">Our Digital Craftsmanship</h1>
+                <p class="page-subtitle">A Glimpse into the Advanced Animations, Effects, and UI/UX We Master.</p>
             </div>
         </section>
 
-        <!-- Demo Section 1: Animated Buttons & Hover Effects -->
-        <section class="demo-section">
+        <!-- Demo Section 1: 3D CSS Object -->
+        <section class="demo-showcase-section section-padding alt-bg">
             <div class="container">
-                <h2>Interactive Buttons & Hover States</h2>
-                <div class="component-grid">
-                    <button class="btn demo-btn-1">Pulse Glow</button>
-                    <button class="btn demo-btn-2">Slide Effect</button>
-                    <button class="btn demo-btn-3">Border Magic</button>
-                    <a href="#" class="btn demo-btn-4">Icon Link <span class="icon">→</span></a>
+                <h2 class="demo-section-title">Interactive 3D Elements</h2>
+                <div class="demo-component-wrapper justify-center">
+                    <div class="cube-container">
+                        <div class="cube">
+                            <div class="face front">NEXLIFY</div>
+                            <div class="face back">STUDIO</div>
+                            <div class="face right">Design</div>
+                            <div class="face left">Develop</div>
+                            <div class="face top">Create</div>
+                            <div class="face bottom">Innovate</div>
+                        </div>
+                    </div>
+                    <p class="demo-description">Pure CSS 3D cube, interactive on hover. Showcasing depth and transformation capabilities.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Demo Section 2: Cards with Effects -->
-        <section class="demo-section alt-bg">
+        <!-- Demo Section 2: Parallax Scrolling Cards / Glassmorphism -->
+        <section class="demo-showcase-section section-padding parallax-bg-section">
             <div class="container">
-                <h2>Dynamic Content Cards</h2>
-                <div class="card-grid">
-                    <div class="demo-card">
-                        <img src="https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Feature+One" alt="Feature One">
-                        <h3>Card Title 1</h3>
-                        <p>Subtle lift and shadow on hover. Perfect for showcasing features or products.</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
+                <h2 class="demo-section-title light-text-shadow">Depth & Parallax Effects</h2>
+                 <div class="demo-component-wrapper justify-center">
+                    <div class="parallax-card-stack">
+                        <div class="parallax-card glassmorphic">
+                            <h3>Feature Card 1</h3>
+                            <p>Elegant glassmorphism with subtle parallax scroll effect.</p>
+                        </div>
+                        <div class="parallax-card glassmorphic">
+                            <h3>Service Highlight</h3>
+                            <p>Dynamic depth perception as you scroll through the page.</p>
+                        </div>
+                        <div class="parallax-card glassmorphic">
+                            <h3>iOS Inspired UI</h3>
+                            <p>Clean, modern, and intuitively interactive components.</p>
+                        </div>
                     </div>
-                    <div class="demo-card glass-card">
-                         <img src="https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=Feature+Two" alt="Feature Two">
-                        <h3>Glassmorphism Card</h3>
-                        <p>Modern frosted glass effect. Requires a background image on the section.</p>
-                        <a href="#" class="btn btn-small btn-light">Explore</a>
+                    <p class="demo-description light-text-shadow">Cards with a parallax effect, creating a sense of depth. Glassmorphism adds a modern touch.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section 3: Advanced Hover & Particle Effects -->
+        <section class="demo-showcase-section section-padding alt-bg">
+            <div class="container">
+                <h2 class="demo-section-title">Advanced Hover & Particle Effects</h2>
+                <div class="demo-component-wrapper">
+                    <button class="btn btn-primary btn-hover-magnetic">
+                        Magnetic Hover
+                        <span class="btn-particle-effect"></span>
+                    </button>
+                    <div class="interactive-blob-container">
+                        <div class="interactive-blob"></div>
+                        <p>Interactive SVG Blob (conceptual)</p>
                     </div>
-                    <div class="demo-card flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <img src="https://via.placeholder.com/300x200/45B7D1/FFFFFF?text=Hover+Me" alt="Flip Card">
-                                <h3>Interactive Flip</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <h4>More Details!</h4>
-                                <p>Reveals content on the other side. Great for Q&A or concise info.</p>
-                            </div>
+                    <a href="#" class="link-distort-effect">
+                        <span>Distortion Link</span>
+                        <span>Distortion Link</span>
+                    </a>
+                </div>
+                <p class="demo-description text-center">Buttons with particle explosions on hover, magnetic effects, and text distortion links for a unique feel.</p>
+            </div>
+        </section>
+
+        <!-- Demo Section 4: Scroll-Triggered Animations & Text Effects -->
+        <section class="demo-showcase-section section-padding">
+            <div class="container">
+                <h2 class="demo-section-title">Scroll-Triggered & Text Animations</h2>
+                <div class="demo-component-wrapper flex-column align-center">
+                    <h3 class="text-reveal-scroll" data-scroll-reveal><span>Premium Typography Effects</span></h3>
+                    <p class="text-glitch" data-scroll-reveal data-text="GLITCH EFFECT">GLITCH EFFECT</p>
+                    <div class="progress-bar-container" data-scroll-reveal>
+                        <p>Animated Progress on Scroll</p>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill"></div>
                         </div>
                     </div>
                 </div>
+                 <p class="demo-description text-center">Elements animate into view as you scroll. Includes text reveal, glitch effects, and animated progress indicators.</p>
             </div>
         </section>
 
-        <!-- Demo Section 3: Text Animations & Counters -->
-        <section class="demo-section">
+         <!-- Demo Section 5: Advanced UI Components (e.g., iOS-style toggle, segmented control) -->
+        <section class="demo-showcase-section section-padding alt-bg">
             <div class="container">
-                <h2>Engaging Text & Counters</h2>
-                <div class="component-grid">
-                    <h3 class="animated-text-reveal"><span>Revealing Text Animation</span></h3>
-                    <div class="counter-container">
-                        <div class="counter" data-target="150">0</div>
-                        <p>Projects Completed</p>
+                <h2 class="demo-section-title">Polished UI Components</h2>
+                <div class="demo-component-wrapper justify-around">
+                    <div class="ios-toggle-container">
+                        <label class="ios-toggle">
+                            <input type="checkbox" class="ios-toggle-checkbox">
+                            <span class="ios-toggle-slider"></span>
+                        </label>
+                        <span>iOS Style Toggle</span>
                     </div>
-                    <div class="counter-container">
-                        <div class="counter" data-target="98">0</div>
-                        <p>% Client Satisfaction</p>
-                    </div>
-                     <p class="gradient-text">This is a Gradient Text Effect!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Demo Section 4: Accordion / FAQ -->
-        <section class="demo-section alt-bg">
-            <div class="container">
-                <h2>Accordion / FAQ Component</h2>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            What technologies do you use?
-                            <span class="accordion-icon">+</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p>We primarily use HTML, CSS, JavaScript, and can work with various frameworks like React, Vue, or backend technologies like Node.js, Python, or PHP depending on project needs.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            How long does a project take?
-                            <span class="accordion-icon">+</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Project timelines vary based on complexity, features, and client responsiveness. A simple landing page might take 1-2 weeks, while a more complex site could take 4-8 weeks or longer.</p>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button class="accordion-header">
-                            Do you offer ongoing maintenance?
-                            <span class="accordion-icon">+</span>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Yes, we offer various maintenance packages to ensure your website remains up-to-date, secure, and performs optimally post-launch.</p>
-                        </div>
+                    <div class="segmented-control">
+                        <button class="segment active" data-value="photos">Photos</button>
+                        <button class="segment" data-value="music">Music</button>
+                        <button class="segment" data-value="videos">Videos</button>
                     </div>
                 </div>
+                 <p class="demo-description text-center">Pixel-perfect UI elements like native iOS toggles and segmented controls for a refined user experience.</p>
             </div>
         </section>
-
-        <!-- Demo Section 5: Modal / Popup -->
-         <section class="demo-section">
-            <div class="container">
-                <h2>Modal / Popup Window</h2>
-                <button class="btn" id="openModalBtn">Open Modal</button>
-
-                <div id="demoModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close-modal-btn">×</span>
-                        <h3>Sample Modal Title</h3>
-                        <p>This is a simple modal window. It can be used for login forms, important announcements, image galleries, or video embeds.</p>
-                        <img src="https://via.placeholder.com/400x200/77DD77/FFFFFF?text=Modal+Content" alt="Modal image" style="max-width:100%; border-radius: 8px; margin-top:15px;">
-                        <button class="btn btn-primary" style="margin-top:20px;" id="closeModalInsideBtn">Close</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
     </main>
 
-    <footer>
-        <div class="container">
-            <p>© <span id="currentYear"></span> Universal Developer. All Rights Reserved.</p>
-            <p><a href="about.html#privacy">Privacy Policy</a> | <a href="about.html#terms">Terms of Service</a></p>
+    <footer class="site-footer">
+        <!-- ... (Same footer as index.html) ... -->
+        <div class="container footer-container">
+            <div class="footer-branding">
+                <a href="index.html" class="logo footer-logo">NEXLIFY STUDIO</a>
+                <p>Developed by <span class="team-name">Universal Developer Team</span></p>
+            </div>
+            <div class="footer-links">
+                <a href="about.html#privacy">Privacy Policy</a>
+                <a href="about.html#terms">Terms of Service</a>
+            </div>
+            <p class="copyright">© <span id="currentYear"></span> NEXLIFY STUDIO. All Rights Reserved.</p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
