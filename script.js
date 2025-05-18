@@ -1,133 +1,163 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Smooth scroll for internal links & active nav highlighting
-    const navLinks = document.querySelectorAll('header nav a[href^="#"], .hero-cta-group a[href^="#"]');
-    navLinks.forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#') && href.length > 1) { // Check it's an actual anchor
-                e.preventDefault();
-                const targetId = href;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = document.querySelector('header').offsetHeight + 20; // Adjust for fixed header + some padding
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
-    // Current Year for Footer
+    const body = document.body;
+    const menuToggleBtn = document.getElementById('menuToggleBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
     const currentYearSpan = document.getElementById('currentYear');
+
+    // --- Mobile Menu ---
+    if (menuToggleBtn && mobileMenu) {
+        menuToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('menu-open');
+            menuToggleBtn.classList.toggle('active');
+            menuToggleBtn.setAttribute('aria-expanded', menuToggleBtn.classList.contains('active'));
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link inside it is clicked (for single-page anchors)
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Only close if it's an anchor link on the same page
+                if (link.getAttribute('href').startsWith('#')) {
+                    body.classList.remove('menu-open');
+                    menuToggleBtn.classList.remove('active');
+                    menuToggleBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.remove('active');
+                }
+                // For multi-page navigation, the page will reload anyway, closing the menu.
+            });
+        });
+    }
+
+    // --- Theme Toggle (Dark/Light Mode) ---
+    const applyTheme = (theme) => {
+        if (theme === 'light') {
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+        } else {
+            body.classList.add('dark-mode');
+            body.classList.remove('light-mode');
+        }
+    };
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const newTheme = body.classList.contains('light-mode') ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('nexlifyTheme', newTheme);
+        });
+    }
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('nexlifyTheme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        // Optional: Check system preference if no theme saved
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            applyTheme('light');
+        } else {
+            applyTheme('dark'); // Default to dark if no preference/storage
+        }
+    }
+
+    // --- Current Year for Footer ---
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // Active Nav Link based on current page (simple version)
-    const currentPage = window.location.pathname.split("/").pop();
-    const headerNavLinks = document.querySelectorAll('header nav a');
-    headerNavLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage || (currentPage === '' && link.getAttribute('href') === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+    // --- Smooth Scroll for internal links & Active Nav Highlighting ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.length > 1 && document.querySelector(href)) { // Check if it's a valid selector
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                const headerOffset = document.querySelector('.site-header')?.offsetHeight || 70;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 
 
-    // Demo Page: Counters Animation
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200; // The lower the slower
-
-    const animateCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / speed;
-
-        if (count < target) {
-            counter.innerText = Math.ceil(count + inc);
-            setTimeout(() => animateCounter(counter), 15);
-        } else {
-            counter.innerText = target;
-        }
+    // --- Intersection Observer for Scroll-Triggered Animations ---
+    const scrollRevealElements = document.querySelectorAll('[data-scroll-reveal]');
+    const revealObserverOptions = {
+        root: null, // viewport
+        threshold: 0.15, // 15% of item visible
+        rootMargin: "0px 0px -50px 0px" // trigger a bit earlier
     };
 
-    // Intersection Observer for counters (start when visible)
-    const observerOptions = {
-        root: null,
-        threshold: 0.5 // Trigger when 50% of the element is visible
-    };
-
-    const counterObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target); // Animate only once
-            }
-        });
-    }, observerOptions);
-
-    counters.forEach(counter => {
-        counterObserver.observe(counter);
-    });
-
-
-    // Demo Page: Accordion
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion-header');
-        const content = item.querySelector('.accordion-content');
-        header.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            // Close all other items
-            accordionItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                }
-            });
-            // Toggle current item
-            if (isActive) {
-                item.classList.remove('active');
-                content.style.maxHeight = null;
+                entry.target.classList.add('is-visible');
+                // Optional: unobserve after revealing to save resources
+                // observer.unobserve(entry.target);
             } else {
-                item.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + "px";
+                // Optional: remove class if you want animation to replay on scroll up
+                // entry.target.classList.remove('is-visible');
             }
+        });
+    }, revealObserverOptions);
+
+    scrollRevealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // --- Parallax Card Effect (Demo Page) ---
+    const parallaxCards = document.querySelectorAll('.parallax-card');
+    if (parallaxCards.length > 0 && window.innerWidth > 768) { // Only apply on larger screens
+        window.addEventListener('scroll', () => {
+            parallaxCards.forEach((card, index) => {
+                const speed = (index + 1) * 0.15; // Different speed for each card
+                // Ensure card.parentElement is not null
+                const parentTop = card.parentElement ? card.parentElement.getBoundingClientRect().top : 0;
+                let moveY = (parentTop * speed) - (100 * speed * (index +1) *0.2) ; // Adjust initial offset too
+
+                // Cap movement to avoid excessive displacement
+                moveY = Math.max(-150, Math.min(150, moveY));
+
+                card.style.transform = `translateY(${moveY}px)`;
+            });
+        });
+    }
+
+
+    // --- Magnetic Button Effect (Demo Page) ---
+    const magneticButtons = document.querySelectorAll('.btn-hover-magnetic');
+    magneticButtons.forEach(button => {
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            button.style.transform = `translate(${x * 0.15}px, ${y * 0.25}px) scale(1.05)`;
+            button.style.boxShadow = `0 ${Math.abs(y*0.2)}px ${Math.abs(y*0.4)}px rgba(var(--accent-blue-rgb, 0, 122, 255), 0.3)`;
+        });
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translate(0,0) scale(1)';
+            button.style.boxShadow = 'none';
         });
     });
 
-    // Demo Page: Modal
-    const modal = document.getElementById("demoModal");
-    const openModalBtn = document.getElementById("openModalBtn");
-    const closeModalSpans = document.querySelectorAll(".close-modal-btn, #closeModalInsideBtn");
-
-    if (openModalBtn && modal) {
-        openModalBtn.onclick = function() {
-            modal.style.display = "block";
-        }
-    }
-
-    closeModalSpans.forEach(span => {
-        if (span && modal) {
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-        }
+    // --- Segmented Control (Demo Page) ---
+    const segmentedControls = document.querySelectorAll('.segmented-control');
+    segmentedControls.forEach(control => {
+        const segments = control.querySelectorAll('.segment');
+        segments.forEach(segment => {
+            segment.addEventListener('click', () => {
+                segments.forEach(s => s.classList.remove('active'));
+                segment.classList.add('active');
+                // console.log('Selected segment:', segment.dataset.value);
+                // Add logic here based on selected segment if needed
+            });
+        });
     });
-
-    if (modal) {
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    }
 
 });
