@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXLIFY STUDIO - Crafting Digital Excellence</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Placeholder for iOS-style Favicon if you have one -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 </head>
-<body class="dark-mode"> <!-- Default to dark mode, JS will check localStorage -->
+<body class="dark-mode">
 
     <div class="video-background-container">
         <video autoplay loop muted playsinline id="heroVideo" class="hero-video-bg">
-            <!-- How to Upload:
-                 1. Create a folder named 'videos' in your project's root directory.
-                 2. Place your video file (e.g., 'hero-background.mp4') inside this 'videos' folder.
-                 3. Update the src attribute below to 'videos/your-video-filename.mp4'.
-                 4. Keep the video short, optimized for web, and ideally under 5-10MB.
-            -->
             <source src="videos/hero-background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -28,7 +21,9 @@
     <header class="site-header">
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <span class="logo-icon-initials">NS</span>NEXLIFY STUDIO
+                <!-- Updated Logo: Use an image -->
+                <img src="images/logo-favicon.png" alt="NEXLIFY STUDIO Logo Icon" class="logo-image-icon">
+                NEXLIFY STUDIO
             </a>
             <div class="header-right">
                 <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">
@@ -62,7 +57,7 @@
 
     <main class="site-main">
         <section class="hero" id="home">
-            <div class="hero-overlay"></div> <!-- Overlay for text readability over video -->
+            <div class="hero-overlay"></div>
             <div class="container hero-container">
                 <div class="hero-content">
                     <h1 class="hero-title">NEXLIFY STUDIO</h1>
@@ -89,22 +84,37 @@
                 <p class="section-intro">We specialize in creating impactful digital solutions tailored to your unique needs.</p>
                 <div class="services-grid">
                     <div class="service-card-ios">
-                        <div class="service-card-icon">✨</div>
+                        <div class="service-card-icon-css icon-portfolio">
+                            <span class="icon-shape shape-star"></span>
+                            <span class="icon-shape shape-rect"></span>
+                        </div>
                         <h3>Personal & Portfolio Sites</h3>
                         <p>Showcase your talents and personality with a bespoke website that stands out.</p>
                     </div>
                     <div class="service-card-ios">
-                        <div class="service-card-icon">📈</div>
+                        <div class="service-card-icon-css icon-business">
+                            <span class="icon-bar bar1"></span>
+                            <span class="icon-bar bar2"></span>
+                            <span class="icon-bar bar3"></span>
+                        </div>
                         <h3>Business Websites</h3>
                         <p>Elevate your brand with a professional, conversion-focused online presence.</p>
                     </div>
                     <div class="service-card-ios">
-                        <div class="service-card-icon">🎨</div>
+                        <div class="service-card-icon-css icon-custom">
+                            <span class="icon-gear-outer">
+                                <span class="icon-gear-inner"></span>
+                            </span>
+                        </div>
                         <h3>Custom Web Solutions</h3>
                         <p>Have a unique idea? We build tailor-made web applications from the ground up.</p>
                     </div>
                      <div class="service-card-ios">
-                        <div class="service-card-icon">🚀</div>
+                        <div class="service-card-icon-css icon-animation">
+                            <span class="icon-motion-line line1"></span>
+                            <span class="icon-motion-line line2"></span>
+                            <span class="icon-motion-line line3"></span>
+                        </div>
                         <h3>Advanced Animations & UI/UX</h3>
                         <p>Engage users with fluid animations and intuitive interfaces inspired by the best.</p>
                     </div>
@@ -116,7 +126,34 @@
             <div class="container text-center">
                 <h2 class="cta-title">Ready to Elevate Your Digital Presence?</h2>
                 <p class="cta-text">Let's discuss how NEXLIFY STUDIO can bring your project to life with innovation and style.</p>
-                <a href="#contact" class="btn btn-primary btn-cta-banner">Start Your Project</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSctOKZZo4GYfDTniI5YTMBdBGmVhtEXimpxJHl2M1LIxZiQ0w/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-cta-banner">Start Your Project</a>
+            </div>
+        </section>
+
+        <section class="nexlify-ai-section section-padding alt-bg" id="nexlify-ai">
+            <div class="container">
+                <h2 class="section-title">NEXLIFY AI Assistant</h2>
+                <p class="section-intro">Ask about our services, process, or anything web design! (Demo simulation)</p>
+
+                <div class="ai-chat-container">
+                    <div class="ai-chat-window">
+                        <div class="ai-message ai-message-bot">
+                            <div class="ai-avatar bot-avatar">AI</div>
+                            <div class="ai-bubble">
+                                Hello! I'm NEXLIFY's AI Assistant. How can I help you today? Try asking "What services do you offer?" or "Tell me about your design process."
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-input-area">
+                        <textarea id="aiUserInput" placeholder="Ask NEXLIFY AI..." rows="1"></textarea>
+                        <button id="aiSendBtn" aria-label="Send message to AI">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <p class="ai-disclaimer">Please note: This is a simulated AI interaction for demonstration purposes. For official inquiries, please use our contact form or email.</p>
             </div>
         </section>
 
@@ -128,7 +165,7 @@
                     <p>Email: <a href="mailto:universaldeveloper07@gmail.com">universaldeveloper07@gmail.com</a></p>
                     <p>Let's build something incredible together!</p>
                 </div>
-                <form class="contact-form" action="#" method="POST"> <!-- Add your form action here -->
+                <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -157,6 +194,14 @@
             <p class="copyright">© <span id="currentYear"></span> NEXLIFY STUDIO. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div id="invalidMessageModal" class="ios-style-modal">
+        <div class="ios-modal-content">
+            <h3 class="ios-modal-title">Message Status</h3>
+            <p class="ios-modal-text">Message invalid. Sorry for the inconvenience, please try to email directly at <a href="mailto:universaldeveloper07@gmail.com">universaldeveloper07@gmail.com</a>.</p>
+            <button id="closeInvalidModalBtn" class="ios-modal-button">OK</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
